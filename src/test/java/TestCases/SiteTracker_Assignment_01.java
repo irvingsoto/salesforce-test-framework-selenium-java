@@ -65,6 +65,9 @@ public class SiteTracker_Assignment_01 extends TestBase {
         //Step 12.- Click on the down caret icon for the last row and select “Show Details”
         System.out.println("Step12.- Click on the down caret icon for the last row and select “Show Details”");
         pg.cliclkOnShowDetails();
+        //Step 13.- Assert the record details “Name” and “Balance” are the same as the last row in the Blue Section below the table
+        System.out.println("Step 13.- Assert the record details “Name” and “Balance” are the same as the last row in the Blue Section below the table");
+        pg.assertRecords();
 
 
     }
