@@ -6,11 +6,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
-import pageObjects.ComponentReferecePage;
 import pageObjects.PlayGroundPage;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 public class PlayGroundActions {
     protected WebDriver driver = null;

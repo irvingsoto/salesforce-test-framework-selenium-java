@@ -65,8 +65,5 @@ public enum TestData {
     public String getBalance() { return balance; }
     public String getDrpExampleOption2() { return drpExampleOption2; }
 
-
-
-
 }
 

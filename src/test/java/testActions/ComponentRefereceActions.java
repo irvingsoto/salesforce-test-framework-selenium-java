@@ -44,13 +44,16 @@ public class ComponentRefereceActions {
 
     public void selectDatatableFromInlineEdit(String drpOption){
         try {
-            Thread.sleep(2000);
             ComponentReferece.getExampleDrp1().click();
-            Thread.sleep(2000);
-            for (int i=0; i<ComponentReferece.getDrpItems().size(); i++){
-                System.out.println(ComponentReferece.getDrpItems().get(i).getText());
-                if (ComponentReferece.getDrpItems().get(i).getText().equals(drpOption))
-                    ComponentReferece.getDrpItems().get(i).click();
+            System.out.println("La lista de opciones es de: " +ComponentReferece.getDrpItems().size());
+
+            for (WebElement exampleDrpOption : ComponentReferece.getDrpItems()){
+                System.out.println("Opcion: " + exampleDrpOption.getText());
+                if (exampleDrpOption.getText().equals(drpOption)) {
+                    exampleDrpOption.click();
+                    break;
+                }
+
             }
             System.out.println("Actual result: “Datatable from Inline Edit” Selected");
         } catch (Exception e) {

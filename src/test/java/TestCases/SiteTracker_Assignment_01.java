@@ -15,7 +15,6 @@ public class SiteTracker_Assignment_01 extends TestBase {
     private String testCaseName = this.getClass().getSimpleName();
     final TestData data = TestData.TEST_DATA_01;
 
-
     @Before
     public void beforeTest() {
 
@@ -23,7 +22,7 @@ public class SiteTracker_Assignment_01 extends TestBase {
     }
 
     @Test
-    public void testMain() throws Exception {
+    public void testMain()  {
 
         ComponentLibraryActions componentLibrary = new ComponentLibraryActions(driver);
         ComponentRefereceActions componentReferece = new ComponentRefereceActions(driver);
@@ -68,14 +67,10 @@ public class SiteTracker_Assignment_01 extends TestBase {
         //Step 13.- Assert the record details “Name” and “Balance” are the same as the last row in the Blue Section below the table
         System.out.println("Step 13.- Assert the record details “Name” and “Balance” are the same as the last row in the Blue Section below the table");
         pg.assertRecords();
-
-
     }
 
     @After
     public void tearDown() {
-
         afterClass(testCaseName);
     }
-
 }
