@@ -42,20 +42,18 @@ public class ComponentRefereceActions {
         }
     }
 
-    public void selectDatatableFromInlineEdit(String drpOption){
+    public void selectOptionFromExampleDrpDwn(String drpOption){
         try {
             ComponentReferece.getExampleDrp1().click();
-            System.out.println("La lista de opciones es de: " +ComponentReferece.getDrpItems().size());
-
             for (WebElement exampleDrpOption : ComponentReferece.getDrpItems()){
-                System.out.println("Opcion: " + exampleDrpOption.getText());
                 if (exampleDrpOption.getText().equals(drpOption)) {
                     exampleDrpOption.click();
                     break;
                 }
-
             }
             System.out.println("Actual result: “Datatable from Inline Edit” Selected");
+            ComponentReferece.getQuickFindTxt().click();
+            driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS) ;
         } catch (Exception e) {
             System.out.println("Actual result: Not possible to Select “Datatable from Inline Edit” from dropdown'");
             System.out.println(e);
@@ -77,7 +75,7 @@ public class ComponentRefereceActions {
         try {
 
             driver.navigate().back();
-            selectDatatableFromInlineEdit(data.getDrpExampleOption2());
+            selectOptionFromExampleDrpDwn(data.getDrpExampleOption2());
 
         } catch (Exception e) {
             System.out.println("Actual result: Not possible to click on The “Open in Playground” button");

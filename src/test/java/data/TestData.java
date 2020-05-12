@@ -11,9 +11,8 @@ public enum TestData {
             "(555)-755-6575",
             "Mar 1, 2022",
             "12:57 PM",
-            "Data Table with Row Actions",
-            "770.54");
-
+            "770.54",
+            "Data Table with Row Actions");
 
    // TEST_DATA_02("somedata",
      //               "somedata",

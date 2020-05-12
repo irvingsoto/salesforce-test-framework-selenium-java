@@ -44,6 +44,7 @@ public class PlayGroundActions {
             pg.getDateRow3Btn().click();
             pg.getDateRow3Txt().clear();
             pg.getDateRow3Txt().sendKeys(data.getDate());
+            pg.getTimeRow3Txt().click();
             pg.getTimeRow3Txt().clear();
             pg.getTimeRow3Txt().sendKeys(data.getTime());
             actions.sendKeys(Keys.TAB).perform();
@@ -60,20 +61,20 @@ public class PlayGroundActions {
     public void assertColumnsAreUptatedInTable() {
         boolean valueToAssert=false;
         try {
-            pg.getLabelEditRow3Btn().click();
-            if (pg.getLabelRow3Txt().getText().equals(data.getLabel())) valueToAssert=true;
-            pg.getWebsiteEditRow3Btn().click();
-            if (pg.getWebsiteRow3Txt().getText().equals(data.getWebsite())) valueToAssert=true;
-            pg.getPhoneNumberRow3Btn().click();
-            if (pg.getPhoneNumberRow3Txt().equals(data.getPhone())) valueToAssert=true;
-            pg.getDateRow3Btn().click();
-            if (pg.getDateRow3Txt().getText().equals(data.getDate())) valueToAssert=true;
-            pg.getBalanceRow3Btn().click();
-            if(pg.getBalanceRow3Txt().getText().equals(data.getBalance())) valueToAssert=true;
+            if (pg.getUpdatedRow3Txt().getText().contains(data.getLabel())) valueToAssert=true;
+            else valueToAssert=false;
+            if (pg.getUpdatedWebsiteRow3Txt().getText().contains(data.getWebsite())) valueToAssert=true;
+            else valueToAssert=false;
+            if (pg.getUpdatedPhoneTxt().getText().contains(data.getPhone())) valueToAssert=true;
+            else valueToAssert=false;
+            if (pg.getUpdatedDateTxt().getText().contains(data.getDate())) valueToAssert=true;
+            else valueToAssert=false;
+            if (pg.getUpdatedBalanceTxt().getText().contains(data.getBalance())) valueToAssert=true;
+            else valueToAssert=false;
         } catch (Exception e) {
-            System.out.println("Actual Result: Not possible to assert" + e);
+            System.out.println("Actual Result: Not possible to assert updated values in table " + e);
         }
-        Assert.assertTrue("Actual Result: Data is not succesfully saved in table", valueToAssert);
+        Assert.assertTrue("Actual Result: Data is not succesfully updated in table", valueToAssert);
     }
 
     public void scrollDownToTndOfTable(){

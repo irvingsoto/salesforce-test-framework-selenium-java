@@ -42,7 +42,7 @@ public class SiteTracker_Assignment_01 extends TestBase {
         componentReferece.clickOnDatatableLink();
         //Step 5.-Under Example tab on the main pane > select “Datatable from Inline Edit” from the dropdown
         System.out.println("Step 5.-Under Example tab on the main pane > select “Datatable from Inline Edit” from the dropdown");
-        componentReferece.selectDatatableFromInlineEdit(data.getDrpExampleOption());
+        componentReferece.selectOptionFromExampleDrpDwn(data.getDrpExampleOption());
         //Step 6.- Click on the “Open in Playground” button
         System.out.println("Step 6.- Click on the “Open in Playground” button");
         componentReferece.clickOnOpenInPlaygroundBtn();
@@ -52,9 +52,11 @@ public class SiteTracker_Assignment_01 extends TestBase {
         //Step 8.- Assert the above have been updated in the table
         System.out.println("Step 8.- Assert the above have been updated in the table");
         pg.assertColumnsAreUptatedInTable();
+
         //Step 9.- Navigate back to the previous page and Repeat step 5 by selecting the “Datatable from Row Actions” from the dropdown
         System.out.println("Navigate back to the previous page and Repeat step 5 by selecting the “Datatable from Row Actions” from the dropdown");
         componentReferece.selectDatatableFromRowActions();
+        /*
         //Step 10.- Click on the “Open in Playground” button
         System.out.println("Step 10.- Click on the “Open in Playground” button");
         componentReferece.clickOnOpenInPlaygroundBtn();
@@ -67,6 +69,8 @@ public class SiteTracker_Assignment_01 extends TestBase {
         //Step 13.- Assert the record details “Name” and “Balance” are the same as the last row in the Blue Section below the table
         System.out.println("Step 13.- Assert the record details “Name” and “Balance” are the same as the last row in the Blue Section below the table");
         pg.assertRecords();
+
+         */
     }
 
     @After

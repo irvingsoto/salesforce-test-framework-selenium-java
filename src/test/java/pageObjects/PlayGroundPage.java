@@ -6,24 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
-
 public class PlayGroundPage {
     protected WebDriver driver;
 
     public PlayGroundPage (WebDriver driver) {
         this.driver = driver;
     }
-
-
-    //public WebElement getLabelRow3Txt(){ return(new WebDriverWait(driver, 30)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("lightning-primitive-cell-factory.slds-has-focus > span:nth-child(1) > div:nth-child(1) > lightning-formatted-text:nth-child(1)"))); }
-
-   // public WebElement getLabelRow3Txt() throws InterruptedException {
-     //   return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".slds-hint-parent:nth-child(3) > th .slds-grid")));
-
-    //}
-
-
 
     public WebElement getRandomPlace() {
         return driver.findElement(By.id("st-search-input"));
@@ -44,9 +32,17 @@ public class PlayGroundPage {
         }
     }
 
-    public WebElement getLabelRow3Txt() {
-        return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.id("input-1934")));
-    }
+    public WebElement getLabelRow3Txt() { return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.id("input-1934"))); }
+
+    public WebElement getUpdatedRow3Txt() { return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//lightning-datatable/div[2]/div/div/div/table/tbody/tr[3]/th"))); }
+    public WebElement getUpdatedWebsiteRow3Txt() { return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//lightning-datatable/div[2]/div/div/div/table/tbody/tr[3]/td[3]"))); }
+    public WebElement getUpdatedPhoneTxt() { return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//lightning-datatable/div[2]/div/div/div/table/tbody/tr[3]/td[4]"))); }
+    public WebElement getUpdatedDateTxt() { return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//lightning-datatable/div[2]/div/div/div/table/tbody/tr[3]/td[5]"))); }
+    public WebElement getUpdatedBalanceTxt() { return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//lightning-datatable/div[2]/div/div/div/table/tbody/tr[3]/td[6]"))); }
+
+
+
+
 
     public WebElement getLabelRow100Txt() {
         return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("lightning-primitive-cell-factory.slds-has-focus")));
@@ -56,9 +52,12 @@ public class PlayGroundPage {
         return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".slds-hint-parent:nth-child(3) > .slds-cell-edit:nth-child(4) lightning-primitive-icon")));
     }
 
-    public WebElement getWebsiteRow3Txt() {
-        return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.id("input-1937")));
+    public WebElement getWebsiteRow3Txt() { return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.id("input-1937")));
     }
+
+
+
+
 
     public WebElement getPhoneNumberRow3Btn() {
         return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".slds-hint-parent:nth-child(3) > .slds-cell-edit:nth-child(5) lightning-primitive-icon")));
