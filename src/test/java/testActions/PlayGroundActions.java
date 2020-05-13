@@ -22,13 +22,13 @@ public class PlayGroundActions {
 
 
     public void updateAllColumnsInTable() {
+        Actions actions = new Actions(driver);
         try {
             Thread.sleep(3000);
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS) ;
             driver.switchTo().frame(0);
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS) ;
             driver.switchTo().frame(1);
-            Actions actions = new Actions(driver);
             pg.getLabelEditRow3Btn().click();
             pg.getLabelRow3Txt().clear();
             pg.getLabelRow3Txt().sendKeys(data.getLabel());
@@ -75,6 +75,7 @@ public class PlayGroundActions {
             System.out.println("Actual Result: Not possible to assert updated values in table " + e);
         }
         Assert.assertTrue("Actual Result: Data is not succesfully updated in table", valueToAssert);
+        System.out.println("Actual Result: Not possible to assert updated values in table ");
     }
 
     public void scrollDownToTndOfTable(){

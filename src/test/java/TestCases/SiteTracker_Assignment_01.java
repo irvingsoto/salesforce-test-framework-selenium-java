@@ -54,7 +54,7 @@ public class SiteTracker_Assignment_01 extends TestBase {
         pg.assertColumnsAreUptatedInTable();
 
         //Step 9.- Navigate back to the previous page and Repeat step 5 by selecting the “Datatable from Row Actions” from the dropdown
-        System.out.println("Navigate back to the previous page and Repeat step 5 by selecting the “Datatable from Row Actions” from the dropdown");
+        System.out.println("Step 9.- Navigate back to the previous page and Repeat step 5 by selecting the “Datatable from Row Actions” from the dropdown");
         componentReferece.selectDatatableFromRowActions();
         /*
         //Step 10.- Click on the “Open in Playground” button

@@ -1,8 +1,10 @@
 package testActions;
 
 import data.TestData;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import pageObjects.ComponentReferecePage;
 
 import java.util.concurrent.TimeUnit;
@@ -43,7 +45,9 @@ public class ComponentRefereceActions {
     }
 
     public void selectOptionFromExampleDrpDwn(String drpOption){
+        //Actions actions = new Actions(driver);
         try {
+            driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS) ;
             ComponentReferece.getExampleDrp1().click();
             for (WebElement exampleDrpOption : ComponentReferece.getDrpItems()){
                 if (exampleDrpOption.getText().equals(drpOption)) {
@@ -52,6 +56,7 @@ public class ComponentRefereceActions {
                 }
             }
             System.out.println("Actual result: “Datatable from Inline Edit” Selected");
+            //actions.sendKeys(Keys.TAB).perform();
             ComponentReferece.getQuickFindTxt().click();
             driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS) ;
         } catch (Exception e) {
@@ -62,11 +67,12 @@ public class ComponentRefereceActions {
 
     public void clickOnOpenInPlaygroundBtn(){
         try {
+            Actions action = new Actions(driver);
+            action.moveToElement(ComponentReferece.getOpenInPlaygroundBtn()).build().perform();
             ComponentReferece.getOpenInPlaygroundBtn().click();
             System.out.println("Actual result: The “Open in Playground” button is clicked");
-
         } catch (Exception e) {
-            System.out.println("Actual result: Not possible to click on The “Open in Playground” button");
+            System.out.println("Actual result: Not possible to click on The “Open in Playground” button + e");
             System.out.println(e);
         }
     }
@@ -75,6 +81,7 @@ public class ComponentRefereceActions {
         try {
 
             driver.navigate().back();
+            Thread.sleep(5000);
             selectOptionFromExampleDrpDwn(data.getDrpExampleOption2());
 
         } catch (Exception e) {
