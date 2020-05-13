@@ -78,12 +78,14 @@ public class ComponentRefereceActions {
     }
 
     public void selectDatatableFromRowActions(){
+        ComponentLibraryActions componentLibrary = new ComponentLibraryActions(driver);
+        ComponentRefereceActions componentReferece = new ComponentRefereceActions(driver);
+
         try {
-
-            driver.navigate().back();
-            Thread.sleep(5000);
+            componentLibrary.switchToComponentReferenceTab();
+            componentReferece.setQuickFindFor();
+            componentReferece.clickOnDatatableLink();
             selectOptionFromExampleDrpDwn(data.getDrpExampleOption2());
-
         } catch (Exception e) {
             System.out.println("Actual result: Not possible to click on The “Open in Playground” button");
             System.out.println(e);

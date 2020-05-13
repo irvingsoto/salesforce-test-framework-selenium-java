@@ -16,7 +16,7 @@ public class ComponentLibraryPage {
         this.driver = driver;
     }
 
-    //public WebElement getComponentReferenceTab(){ return driver.findElement(By.linkText("Component Reference")); }
-    public  WebElement getComponentReferenceTab (){ return(new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.linkText("Component Reference"))); }
-
+    public  WebElement getComponentReferenceTab (){
+        return(new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(By.linkText("Component Reference")));
+    }
 }
