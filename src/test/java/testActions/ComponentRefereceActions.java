@@ -57,8 +57,8 @@ public class ComponentRefereceActions {
             }
             System.out.println("Actual result: “Datatable from Inline Edit” Selected");
             //actions.sendKeys(Keys.TAB).perform();
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             ComponentReferece.getQuickFindTxt().click();
-            driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS) ;
         } catch (Exception e) {
             System.out.println("Actual result: Not possible to Select “Datatable from Inline Edit” from dropdown'");
             System.out.println(e);
@@ -72,7 +72,7 @@ public class ComponentRefereceActions {
             ComponentReferece.getOpenInPlaygroundBtn().click();
             System.out.println("Actual result: The “Open in Playground” button is clicked");
         } catch (Exception e) {
-            System.out.println("Actual result: Not possible to click on The “Open in Playground” button + e");
+            System.out.println("Actual result: Not possible to click on The “Open in Playground” button");
             System.out.println(e);
         }
     }
@@ -82,6 +82,7 @@ public class ComponentRefereceActions {
         ComponentRefereceActions componentReferece = new ComponentRefereceActions(driver);
 
         try {
+            driver.navigate(). refresh();
             componentLibrary.switchToComponentReferenceTab();
             componentReferece.setQuickFindFor();
             componentReferece.clickOnDatatableLink();

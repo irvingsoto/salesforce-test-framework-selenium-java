@@ -12,11 +12,10 @@ public class ComponentLibraryPage {
     protected WebDriver driver;
 
     public ComponentLibraryPage (WebDriver driver) {
-
         this.driver = driver;
     }
 
     public  WebElement getComponentReferenceTab (){
-        return(new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(By.linkText("Component Reference")));
+        return(new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(By.cssSelector("componentreference-nav-item.slds-context-bar__item:nth-child(1) > a:nth-child(1) > span:nth-child(1)")));
     }
 }
