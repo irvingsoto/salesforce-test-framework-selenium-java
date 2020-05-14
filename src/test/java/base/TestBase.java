@@ -5,14 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.firefox.ProfilesIni;
-import org.openqa.selenium.logging.LogType;
-import org.openqa.selenium.logging.LoggingPreferences;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
-
-import java.util.logging.Level;
 
 public class TestBase {
 
@@ -34,7 +26,7 @@ public class TestBase {
             case "firefox":
                 driver =  getFirefoxDriver(driverType);
                 break;
-            //Add more case sentences for more drivers
+            //TODO Add more cases sentences to add more drivers
             default:
                 driver = getOtherDriver(driverType);
                 break;
@@ -56,17 +48,17 @@ public class TestBase {
         driver = new ChromeDriver();
         return driver;
     }
-    //Add more browsers
+    //In Case framework not supported driver this method will print a message
     public WebDriver getOtherDriver(String driverType) {
         System.out.println("Initializing " + driverType);
-        System.out.println("Need to add driver: " + driverType);
-        // System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
-        //driver = new ChromeDriver();
+        System.out.println(driverType + " is not supported");
         return driver;
     }
 
+    //TODO add framework support for more browser drivers
+
     public void afterClass(String testCaseName){
-        try {
+        try{
             System.out.println("End Of TestCase:  " + testCaseName);
             Thread.sleep(2000);
             driver.quit();

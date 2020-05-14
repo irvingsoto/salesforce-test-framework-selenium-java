@@ -16,6 +16,8 @@ public class ComponentLibraryPage {
     }
 
     public  WebElement getComponentReferenceTab (){
-        return(new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(By.cssSelector("componentreference-nav-item.slds-context-bar__item:nth-child(1) > a:nth-child(1) > span:nth-child(1)")));
+        return(new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(
+                By.cssSelector("componentreference-nav-item.slds-context-bar__item:nth-child(1) > a:nth-child(1) > span:nth-child(1)"
+                )));
     }
 }

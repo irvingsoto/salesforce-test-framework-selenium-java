@@ -1,7 +1,6 @@
 package testActions;
 
 import data.TestData;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -21,7 +20,6 @@ public class ComponentRefereceActions {
     }
 
     public void setQuickFindFor(){
-
         try {
             ComponentReferece.getQuickFindTxt().sendKeys((data.getFindFor()));
             System.out.println("Actual result: 'Quick Find' Set");
@@ -33,7 +31,6 @@ public class ComponentRefereceActions {
     }
 
     public void clickOnDatatableLink(){
-
         try {
             ComponentReferece.getDatatableLink().click();
             System.out.println("Actual result: 'datatable' link clicked");
@@ -45,7 +42,6 @@ public class ComponentRefereceActions {
     }
 
     public void selectOptionFromExampleDrpDwn(String drpOption){
-        //Actions actions = new Actions(driver);
         try {
             driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS) ;
             ComponentReferece.getExampleDrp1().click();
@@ -56,7 +52,6 @@ public class ComponentRefereceActions {
                 }
             }
             System.out.println("Actual result: “Datatable from Inline Edit” Selected");
-            //actions.sendKeys(Keys.TAB).perform();
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             Thread.sleep(3000);
             ComponentReferece.getQuickFindTxt().click();
@@ -80,11 +75,9 @@ public class ComponentRefereceActions {
             System.out.println(e);
         }
     }
-
     public void selectDatatableFromRowActions(){
         ComponentLibraryActions componentLibrary = new ComponentLibraryActions(driver);
         ComponentRefereceActions componentReferece = new ComponentRefereceActions(driver);
-
         try {
             driver.navigate(). refresh();
             componentLibrary.switchToComponentReferenceTab();

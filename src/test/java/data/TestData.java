@@ -14,9 +14,10 @@ public enum TestData {
             "770.54",
             "Data Table with Row Actions");
 
-   // TEST_DATA_02("somedata",
-     //               "somedata",
-       //     "sometada");
+    //TODO add more objects to hanlde more test data
+    // TEST_DATA_02("somedata",
+    //             "somedata",
+    //           "sometada");
 
     private final String url;
     private final String browser;
@@ -30,9 +31,7 @@ public enum TestData {
     private final String balance;
     private final String drpExampleOption2;
 
-    TestData(String url, String browser, String findFor, String drpExampleOption, String label, String website, String phone,String date,String time,
-        String balance, String drpExampleOption2
-    ) {
+    TestData(String url, String browser, String findFor, String drpExampleOption, String label, String website, String phone,String date,String time, String balance, String drpExampleOption2) {
         this.url = url;
         this.browser = browser;
         this.findFor= findFor;
@@ -63,6 +62,5 @@ public enum TestData {
     public String getTime() { return time; }
     public String getBalance() { return balance; }
     public String getDrpExampleOption2() { return drpExampleOption2; }
-
 }
 

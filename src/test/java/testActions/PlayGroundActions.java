@@ -20,7 +20,6 @@ public class PlayGroundActions {
         pg = new PlayGroundPage(driver);
     }
 
-
     public void updateAllColumnsInTable() {
         Actions actions = new Actions(driver);
         try {
