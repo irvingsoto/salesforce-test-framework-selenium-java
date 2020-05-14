@@ -50,7 +50,6 @@ public class TestBase {
         return driver;
     }
 
-
     public WebDriver getChromeDriver(String driverType) {
         System.out.println("Initializing " + driverType);
         System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
@@ -67,9 +66,13 @@ public class TestBase {
     }
 
     public void afterClass(String testCaseName){
-
-        System.out.println("End Of TestCase:  " + testCaseName);
-     //   driver.quit();
+        try {
+            System.out.println("End Of TestCase:  " + testCaseName);
+            Thread.sleep(2000);
+            driver.quit();
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 }
 

@@ -23,6 +23,7 @@ public class PlayGroundPage {
         } catch (Exception e){
             return null;
         }
+
     }
     public WebElement getNameEditRow100Btn() {
         try {
@@ -31,19 +32,12 @@ public class PlayGroundPage {
             return null;
         }
     }
-
     public WebElement getLabelRow3Txt() { return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.id("input-1934"))); }
-
     public WebElement getUpdatedRow3Txt() { return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//lightning-datatable/div[2]/div/div/div/table/tbody/tr[3]/th"))); }
     public WebElement getUpdatedWebsiteRow3Txt() { return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//lightning-datatable/div[2]/div/div/div/table/tbody/tr[3]/td[3]"))); }
     public WebElement getUpdatedPhoneTxt() { return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//lightning-datatable/div[2]/div/div/div/table/tbody/tr[3]/td[4]"))); }
     public WebElement getUpdatedDateTxt() { return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//lightning-datatable/div[2]/div/div/div/table/tbody/tr[3]/td[5]"))); }
     public WebElement getUpdatedBalanceTxt() { return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//lightning-datatable/div[2]/div/div/div/table/tbody/tr[3]/td[6]"))); }
-
-
-
-
-
     public WebElement getLabelRow100Txt() {
         return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("lightning-primitive-cell-factory.slds-has-focus")));
     }
@@ -51,14 +45,8 @@ public class PlayGroundPage {
     public WebElement getWebsiteEditRow3Btn() {
         return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".slds-hint-parent:nth-child(3) > .slds-cell-edit:nth-child(4) lightning-primitive-icon")));
     }
-
     public WebElement getWebsiteRow3Txt() { return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.id("input-1937")));
     }
-
-
-
-
-
     public WebElement getPhoneNumberRow3Btn() {
         return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".slds-hint-parent:nth-child(3) > .slds-cell-edit:nth-child(5) lightning-primitive-icon")));
     }
@@ -94,8 +82,8 @@ public class PlayGroundPage {
         return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.id("input-2049")));
     }
 
-    public WebElement getShowDetails() {
-        return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".slds-hint-parent:nth-child(100) > .slds-cell-edit:nth-child(6) lightning-primitive-icon")));
+    public WebElement getLastRowNameTxt() {
+        return(new WebDriverWait(driver, 20)).until(ExpectedConditions.elementToBeClickable(By.xpath("//lightning-datatable/div[2]/div/div/div/table/tbody/tr[100]/th")));
     }
     public WebElement getName() {
         return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("dd.slds-item_detail:nth-child(2)")));
@@ -104,7 +92,15 @@ public class PlayGroundPage {
         return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(" dd.slds-item_detail:nth-child(4) > lightning-formatted-number:nth-child(1)")));
     }
 
+public WebElement getShowDownBtn (){
+    return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//lightning-datatable/div[2]/div/div/div/table/tbody/tr[100]/td[6]/lightning-primitive-cell-factory/span/div/lightning-primitive-cell-actions/lightning-button-menu/button/lightning-primitive-icon")));
 
+}
+
+    public WebElement getShowDetailsOpstion (){
+        return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//lightning-datatable/div[2]/div/div/div/table/tbody/tr[100]/td[6]/lightning-primitive-cell-factory/span/div/lightning-primitive-cell-actions/lightning-button-menu/div/div/slot/lightning-menu-item[1]/a/span\n")));
+
+    }
 
 
 

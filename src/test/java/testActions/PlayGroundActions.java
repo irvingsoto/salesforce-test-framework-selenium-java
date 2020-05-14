@@ -85,17 +85,17 @@ public class PlayGroundActions {
             driver.switchTo().frame(0);
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS) ;
             driver.switchTo().frame(1);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", pg.getShowDetails());
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", pg.getLastRowNameTxt());
             System.out.println("Actual Result: Last record found");
         }catch(Exception e){
             System.out.println("Actual Result: Last record NOT found" + e);
         }
-
     }
 
     public void cliclkOnShowDetails(){
         try{
-            pg.getShowDetails().click();
+            pg.getShowDownBtn().click();
+            pg.getShowDetailsOpstion().click();
             System.out.println("Actual Result: 'Show Details' is clicked");
         }catch(Exception e){
             System.out.println("Actual Result: Not Possible to click on 'Show Details'" + e);
@@ -104,8 +104,9 @@ public class PlayGroundActions {
 
     public void assertRecords(){
         try{
-            Assert.assertSame(pg.getLabelRow100Txt().getText(), pg.getName().getText());
-            Assert.assertSame(pg.getBalanceRow100Txt().getText(), pg.getBalance().getText());
+            Assert.assertSame(pg.getLastRowNameTxt().getText().trim(), pg.getName().getText().trim());
+            Assert.assertSame(pg.getBalanceRow100Txt().getText().trim(), pg.getBalance().getText().trim());
+            System.out.println("Actual Result: records match");
         }catch(Exception e){
             System.out.println("Actual Result: Not Possible to assert records'" + e);
         }
