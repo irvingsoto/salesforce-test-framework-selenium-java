@@ -5,11 +5,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import utils.ReportUtil;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 
 public class TestBase {
 
     final TestData data = TestData.TEST_DATA_01;
     protected WebDriver driver;
+    PrintStream o = null;
+    PrintStream console = null;
+    private ReportUtil reporter = null;
 
     public void beforeClass(String driverType, String testCaseName) {
         getDriver(driverType);
@@ -57,14 +65,31 @@ public class TestBase {
 
     //TODO add framework support for more browser drivers
 
+    public void CreateLog (String testCaseName) throws FileNotFoundException
+    {
+        PrintStream o = new PrintStream(new File(".\\results\\"+testCaseName+"_log.txt"));
+        PrintStream console = System.out;
+
+    }
+
     public void afterClass(String testCaseName){
+        if (reporter != null) {
+            reporter.printReport("END");
+        }
         try{
             System.out.println("End Of TestCase:  " + testCaseName);
             Thread.sleep(2000);
-            driver.quit();
+            //driver.quit();
         }catch (Exception e){
             System.out.println(e);
         }
+        System.setOut(o);
+        System.setOut(console);
+    }
+
+    public void setReporter(ReportUtil reporter) {
+        this.reporter = reporter;
+        this.reporter.printReport("START");
     }
 }
 

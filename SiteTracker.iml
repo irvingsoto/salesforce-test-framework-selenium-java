@@ -41,5 +41,6 @@
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.14" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-collections4:4.1" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.birt.runtime.3_7_1:com.lowagie.text:2.1.7" level="project" />
   </component>
 </module>

@@ -68,7 +68,7 @@ public class PlayGroundPage {
     }
 
     public WebElement getShowDownBtn (){
-    return(new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//lightning-datatable/div[2]/div/div/div/table/tbody/tr[100]/td[6]/lightning-primitive-cell-factory/span/div/lightning-primitive-cell-actions/lightning-button-menu/button/lightning-primitive-icon")));
+    return(new WebDriverWait(driver, 20)).until(ExpectedConditions.elementToBeClickable(By.xpath("//lightning-datatable/div[2]/div/div/div/table/tbody/tr[100]/td[6]/lightning-primitive-cell-factory/span/div/lightning-primitive-cell-actions/lightning-button-menu/button/lightning-primitive-icon")));
 
     }
 

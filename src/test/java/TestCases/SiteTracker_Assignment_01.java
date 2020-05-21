@@ -9,65 +9,68 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import testActions.ComponentRefereceActions;
 import testActions.PlayGroundActions;
+import utils.ReportUtil;
+
+import java.io.FileNotFoundException;
 
 public class SiteTracker_Assignment_01 extends TestBase {
 
     private String testCaseName = this.getClass().getSimpleName();
     final TestData data = TestData.TEST_DATA_01;
+    ReportUtil reporter = new ReportUtil(testCaseName, ".\\results");
 
     @Before
     public void beforeTest() {
-
+        setReporter(reporter);
         beforeClass(data.getBrowser(), testCaseName);
     }
 
     @Test
     public void testMain()  {
 
-        ComponentLibraryActions componentLibrary = new ComponentLibraryActions(driver);
-        ComponentRefereceActions componentReferece = new ComponentRefereceActions(driver);
-        PlayGroundActions pg = new PlayGroundActions(driver);
+        ComponentLibraryActions componentLibrary = new ComponentLibraryActions(driver, reporter);
+        ComponentRefereceActions componentReferece = new ComponentRefereceActions(driver, reporter);
+        PlayGroundActions pg = new PlayGroundActions(driver, reporter);
 
-        //Step 1.- Oppen App
         System.out.println("Step 1.- Navigate to the link: https://developer.salesforce.com/docs/component-library/documentation/en/48.0/lwc");
+        reporter.printStep("Navigate to the link: https://developer.salesforce.com/docs/component-library/documentation/en/48.0/lwc", 1);
         componentLibrary.navigateToLink();
-        //Step 2.- Switch to the Component Reference tab
         System.out.println("Step 2.- Switch to the Component Reference tab");
+        reporter.printStep("Switch to the Component Reference tab", 2);
         componentLibrary.switchToComponentReferenceTab();
-        //Step 3.- Search in Quick Find for “datatable”
         System.out.println("Step 3.- Search in Quick Find for “datatable”");
+        reporter.printStep("Search in Quick Find for 'datatable'", 3);
         componentReferece.setQuickFindFor();
-        //Step 4.- Under Lightning Web Components, click on the Components>lightning>“datatable” on the left menu panel
         System.out.println("Step 4.- Under Lightning Web Components, click on the Components>lightning>“datatable” on the left menu panel");
+        reporter.printStep("Under Lightning Web Components, click on the Components>lightning>“datatable” on the left menu panel", 4);
         componentReferece.clickOnDatatableLink();
-        //Step 5.-Under Example tab on the main pane > select “Datatable from Inline Edit” from the dropdown
         System.out.println("Step 5.-Under Example tab on the main pane > select “Datatable from Inline Edit” from the dropdown");
+        reporter.printStep("Under Example tab on the main pane > select “Datatable from Inline Edit” from the dropdown", 5);
         componentReferece.selectOptionFromExampleDrpDwn(data.getDrpExampleOption());
-        //Step 6.- Click on the “Open in Playground” button
         System.out.println("Step 6.- Click on the “Open in Playground” button");
+        reporter.printStep("Click on the “Open in Playground” button", 6);
         componentReferece.clickOnOpenInPlaygroundBtn();
-        //Step 7.- Under the rightmost section “Preview” -> Edit/Update the values for all the columns in row 3 in the table
         System.out.println("Step 7.- Under the rightmost section “Preview” -> Edit/Update the values for all the columns in row 3 in the table");
+        reporter.printStep("Under the rightmost section “Preview” -> Edit/Update the values for all the columns in row 3 in the table", 7);
         pg.updateAllColumnsInTable();
-        //Step 8.- Assert the above have been updated in the table
         System.out.println("Step 8.- Assert the above have been updated in the table");
+        reporter.printStep("Assert the above have been updated in the table", 8);
         pg.assertColumnsAreUptatedInTable();
-        //Step 9.- Navigate back to the previous page and Repeat step 5 by selecting the “Datatable from Row Actions” from the dropdown
         System.out.println("Step 9.- Navigate back to the previous page and Repeat step 5 by selecting the “Datatable With Row Actions” from the dropdown");
+        reporter.printStep("Navigate back to the previous page and Repeat step 5 by selecting the “Datatable With Row Actions” from the dropdown", 9);
         componentReferece.selectDatatableFromRowActions();
-        //Step 10.- Click on the “Open in Playground” button
         System.out.println("Step 10.- Click on the “Open in Playground” button");
+        reporter.printStep("Click on the “Open in Playground” button", 10);
         componentReferece.clickOnOpenInPlaygroundBtn();
-        //Step 11 .- Under the rightmost section “Preview” -> Scroll down to the end of the table
         System.out.println("Step11 .- Under the rightmost section “Preview” -> Scroll down to the end of the table");
+        reporter.printStep("Under the rightmost section “Preview” -> Scroll down to the end of the table", 11);
         pg.scrollDownToTndOfTable();
-        //Step 12.- Click on the down caret icon for the last row and select “Show Details”
         System.out.println("Step12.- Click on the down caret icon for the last row and select “Show Details”");
+        reporter.printStep("Click on the down caret icon for the last row and select “Show Details", 12);
         pg.cliclkOnShowDetails();
-        //Step 13.- Assert the record details “Name” and “Balance” are the same as the last row in the Blue Section below the table
         System.out.println("Step 13.- Assert the record details “Name” and “Balance” are the same as the last row in the Blue Section below the table");
+        reporter.printStep("Assert the record details “Name” and “Balance” are the same as the last row in the Blue Section below the table", 13);
         pg.assertRecords();
-
     }
 
     @After

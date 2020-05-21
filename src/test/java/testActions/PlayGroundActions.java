@@ -2,11 +2,10 @@ package testActions;
 
 import data.TestData;
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import pageObjects.PlayGroundPage;
+import utils.ReportUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,17 +13,19 @@ public class PlayGroundActions {
     protected WebDriver driver = null;
     PlayGroundPage pg = null;
     final TestData data = TestData.TEST_DATA_01;
+    ReportUtil reporter = null;
 
-    public PlayGroundActions (WebDriver driver){
-        this.driver = driver;
+    public PlayGroundActions (WebDriver driver, ReportUtil reporter){
+        this.reporter= reporter;
+        this.driver= driver;
         pg = new PlayGroundPage(driver);
     }
 
     public void updateAllColumnsInTable() {
         Actions actions = new Actions(driver);
         try {
-            Thread.sleep(3000);
-            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS) ;
+            Thread.sleep(15000);
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
             driver.switchTo().frame(0);
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS) ;
             driver.switchTo().frame(1);
@@ -52,9 +53,13 @@ public class PlayGroundActions {
             pg.getBalanceRow3Txt().sendKeys(data.getBalance());
             actions.sendKeys(Keys.TAB).perform();
             System.out.println("Actual Result: All the columns in row 3 are Updated");
+            reporter.printActualResult("All the columns in row 3 are Updated");
+
         } catch (Exception e) {
             System.out.println("Actual Result: Not Possible to Update all the columns in row 3" + e);
+            reporter.printActualResult("Not Possible to Update all the columns in row 3");
         }
+        reporter.printImageIntoReport(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE));
     }
 
     public void assertColumnsAreUptatedInTable() {
@@ -72,23 +77,30 @@ public class PlayGroundActions {
             else valueToAssert=false;
         } catch (Exception e) {
             System.out.println("Actual Result: Not possible to assert updated values in table " + e);
+            reporter.printActualResult("Not possible to assert updated values in table");
+            reporter.printImageIntoReport(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE));
         }
-        Assert.assertTrue("Actual Result: Data is not succesfully updated in table", valueToAssert);
-        System.out.println("Actual Result: Not possible to assert updated values in table ");
+        Assert.assertTrue("Actual Result: Data is not successfully updated in table", valueToAssert);
+        System.out.println("Actual Result: Data in table is successfully updated");
+        reporter.printActualResult("Data in table is successfully updated");
+        reporter.printImageIntoReport(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE));
     }
 
     public void scrollDownToTndOfTable(){
         try{
-            Thread.sleep(3000);
+            Thread.sleep(11000);
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS) ;
             driver.switchTo().frame(0);
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS) ;
             driver.switchTo().frame(1);
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", pg.getLastRowNameTxt());
             System.out.println("Actual Result: Last record found");
+            reporter.printActualResult("Last record found");
         }catch(Exception e){
             System.out.println("Actual Result: Last record NOT found" + e);
+            reporter.printActualResult("Last record NOT found");
         }
+        reporter.printImageIntoReport(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE));
     }
 
     public void cliclkOnShowDetails(){
@@ -96,18 +108,24 @@ public class PlayGroundActions {
             pg.getShowDownBtn().click();
             pg.getShowDetailsOpstion().click();
             System.out.println("Actual Result: 'Show Details' is clicked");
+            reporter.printActualResult("'Show Details' is clicked");
         }catch(Exception e){
             System.out.println("Actual Result: Not Possible to click on 'Show Details'" + e);
+            reporter.printActualResult("Not Possible to click on 'Show Details'");
         }
+        reporter.printImageIntoReport(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE));
     }
 
     public void assertRecords(){
         try{
             Assert.assertSame(pg.getLastRowNameTxt().getText().trim(), pg.getName().getText().trim());
             Assert.assertSame(pg.getBalanceRow100Txt().getText().trim(), pg.getBalance().getText().trim());
-            System.out.println("Actual Result: records match");
+            System.out.println("Actual Result: Records match");
+            reporter.printActualResult("Records match");
         }catch(Exception e){
             System.out.println("Actual Result: Not Possible to assert records'" + e);
+            reporter.printActualResult("Not Possible to assert records");
         }
+        reporter.printImageIntoReport(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE));
     }
 }
